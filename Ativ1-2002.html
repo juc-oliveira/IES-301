@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Exercício 1</title>
+    </head>
+    <body>
+
+        <h2>Atividade da aula do dia 20/04/2024</h2>
+
+        <h3> Exercício 1</h3>
+        <p>Implemente um script JavaScript que solicite ao usuário a entrada de um
+            dado via teclado. Em seguida, pergunte se o usuário deseja verificar o tipo do
+            dado informado. Caso o usuário confirme escreva no corpo da página o tipo
+            do dado (Number, String, etc.) caso contrário escreva a mensagem: “Obrigado
+            por visitar esta página”.</p>
+
+        <script>
+            let userInput = prompt("Digite um dado:");
+
+            let numero = parseFloat(userInput);
+
+            let confirmacao = confirm("Deseja verificar o tipo do dado informado?");
+
+            if (confirmacao) {
+                if (!isNaN(numero)) {
+                    document.body.innerHTML = "<h2>O tipo do dado informado é: Number</h2>";
+                } else {
+                    document.body.innerHTML = "<h2>O tipo do dado informado é: String</h2>";
+                }
+            } else {
+                document.body.innerHTML = "<h2>Obrigado por visitar esta página</h2>";
+            }
+        </script>
+    <br>
+    <br>
+    <a href="Aula-200224.html">Voltar</a>
+    </body>
+</html>
