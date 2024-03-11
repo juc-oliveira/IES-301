@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 01</title>
+</head>
+    <body>
+
+        <p id="mensagem">Para visualizar a data atual por extenso, clique no botão Exibir.</p>
+        <button onclick="exibirDataPorExtenso()">Exibir</button>
+        <p id="dataExibida"></p>
+        
+            <script>
+                function exibirDataPorExtenso(){
+                const d = new Date();
+                const opcoes = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const dataFormatada = d.toLocaleDateString('pt-BR', opcoes);
+                document.getElementById("dataExibida").innerHTML = dataFormatada;
+            }
+            </script>
+        <br>
+        <br>
+        <a href="Aula-050324.html">Voltar</a>
+    </body>
+</html>

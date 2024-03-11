@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 01</title>
+</head>
+    <body>
+
+        <p id="mensagem">Para visualizar a hora atual, clique no botão Exibir.</p>
+        <button onclick="exibirDataPorExtenso()">Exibir</button>
+        <p id="dataExibida"></p>
+        
+            <script>
+                function exibirDataPorExtenso(){
+                const d = new Date();
+                const horas = d.getHours()
+                const minutos = String(d.getMinutes()).padStart(2, '0');
+                const segundos = String(d.getSeconds()).padStart(2, '0');
+
+                document.getElementById("dataExibida").innerHTML = horas + ":" + minutos+ ":" + segundos; 
+
+            }
+            </script>
+        <br>
+        <br>
+        <a href="Aula-050324.html">Voltar</a>
+    </body>
+</html>
