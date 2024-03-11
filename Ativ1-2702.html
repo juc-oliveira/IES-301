@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 01</title>
+</head>
+<body>
+
+<h2>Cadastro de Dados</h2>
+
+<form id="cadastroForm">
+    <label for="novoDado">Novo Dado:</label>
+    <input type="text" id="novoDado" required>
+    <button type="button" onclick="adicionarDado()">Adicionar</button>
+</form>
+
+<h2>Dados Cadastrados em Ordem Alfabética</h2>
+
+<ol id="listaDados"></ol>
+
+<script>
+    // Array para armazenar os dados inseridos pelo usuário
+    let dadosArray = [];
+
+    // Função para adicionar um novo dado ao array e atualizar a lista
+    function adicionarDado() {
+        // Obter o valor do novo dado do usuário
+        let novoDado = document.getElementById("novoDado").value.trim();
+
+        // Verificar se o dado não está vazio
+        if (novoDado !== "") {
+            // Adicionar o novo dado ao array
+            dadosArray.push(novoDado);
+
+            // Ordenar o array em ordem alfabética considerando a acentuação
+            dadosArray.sort((a, b) => a.localeCompare(b, 'pt'));
+
+            // Atualizar a lista de dados no HTML
+            atualizarLista();
+
+            // Limpar o campo de entrada
+            document.getElementById("novoDado").value = "";
+        }
+    }
+
+    // Função para atualizar a lista de dados no HTML
+    function atualizarLista() {
+        // Obter o elemento da lista no HTML
+        let listaDados = document.getElementById("listaDados");
+
+        // Limpar a lista
+        listaDados.innerHTML = "";
+
+        // Iterar sobre o array e adicionar cada item à lista
+        for (let i = 0; i < dadosArray.length; i++) {
+            let listItem = document.createElement("li");
+            listItem.textContent = dadosArray[i];
+            listaDados.appendChild(listItem);
+        }
+    }
+</script>
+
+</body>
+</html>
