@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.calculator {
+    width: 320px;
+    margin: 100px auto;
+    background-color: #dcdcdc;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.display {
+    font-size: 2em;
+    padding: 10px;
+    text-align: right;
+    background-color: #fff;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.button {
+    font-size: 1.5em;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #e0e0e0;
+}
+
+.button.clear {
+    grid-column: span 2;
+    background-color: #ff6666;
+    color: white;
+}
+
+.button.clear:hover {
+    background-color: #ff4d4d;
+}
+</style>
+</head>
+<body>
+
+<div class="calculator">
+    <input type="text" class="display" id="display" readonly>
+    <div class="buttons">
+        <button class="button" onclick="appendToDisplay('7')">7</button>
+        <button class="button" onclick="appendToDisplay('8')">8</button>
+        <button class="button" onclick="appendToDisplay('9')">9</button>
+        <button class="button clear" onclick="clearDisplay()">C</button>
+        <button class="button" onclick="appendToDisplay('4')">4</button>
+        <button class="button" onclick="appendToDisplay('5')">5</button>
+        <button class="button" onclick="appendToDisplay('6')">6</button>
+        <button class="button" onclick="appendToDisplay('+')">+</button>
+        <button class="button" onclick="appendToDisplay('1')">1</button>
+        <button class="button" onclick="appendToDisplay('2')">2</button>
+        <button class="button" onclick="appendToDisplay('3')">3</button>
+        <button class="button" onclick="appendToDisplay('-')">-</button>
+        <button class="button" onclick="appendToDisplay('0')">0</button>
+        <button class="button" onclick="appendToDisplay('.')">.</button>
+        <button class="button" onclick="calculate()">=</button>
+        <button class="button" onclick="appendToDisplay('*')">*</button>
+        <button class="button" onclick="appendToDisplay('/')">/</button>
+    </div>
+</div>
+
+<script>
+function appendToDisplay(value) {
+    document.getElementById("display").value += value;
+}
+
+function clearDisplay() {
+    document.getElementById("display").value = "";
+}
+
+function calculate() {
+    try {
+        let result = eval(document.getElementById("display").value);
+        document.getElementById("display").value = result;
+    } catch (error) {
+        document.getElementById("display").value = "Error";
+    }
+}
+</script>
+<a href="index.html">Voltar</a>
+</body>
+</html>
